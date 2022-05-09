@@ -25,15 +25,7 @@ for i,v in enumerate(points):
 	points[i]= list(map(float,(points[i].split())))   # スペースで区切られたデータをsplitで分けて型変換、リスト化
 
 f.close()
-"""
-print(points[0])
-print(points[0][0])
-print(points.index([-7542.0, -36050.0, 23.56]))
 
-[-7542.0, -36050.0, 23.56]
--7542.0
-0
-"""
 #######################################################################
 
 import time
