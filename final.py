@@ -1,13 +1,16 @@
 # 欠損点補間・データ削減・地面建物判定
 
 """
-2     2m      2
-19a 13→19  20b
-20c   21d    20e
+欠損点補完の説明
 
-6+100=106/8=平均13
-13と19 20 21 2を比べる
-差の絶対値が一番小さい19になる
+真ん中を欠損点として
+2     2      2
+19 13→19   20
+20   21    20
+
+欠損点を除く平均は106/8=13
+13と四方の19 20 21 2を比べる
+差の絶対値が一番小さい19で補完する
 
 
 """
@@ -148,7 +151,7 @@ for i in range(len(points)):
 
 print(kesson_index) #欠損点がないかどうか確かめる
 """
-# データ削減スタート
+
 p=[]
 p.append(points[0])
 s=1
@@ -160,7 +163,7 @@ for i in range(1,len(points)-1):
 
 p.append(points[len(points)-1])
 
-# 地面建物判定スタート
+
 from operator import itemgetter
 sorted_p = sorted(p, key=itemgetter(2))   # pのz座標(p[i][2])について昇順にソート
 sum = 0
