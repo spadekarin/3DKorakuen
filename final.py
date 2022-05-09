@@ -31,6 +31,7 @@ f.close()
 import time
 start = time.time()
 
+#欠損点補完
 for i in range(len(points)):
 	if points[i][2] == -9999.99:
 		cx=points[i][0]
@@ -143,13 +144,13 @@ for i in range(len(points)):
 
 print(kesson_index) #欠損点がないかどうか確かめる
 """
-
+#空のリストに削減後の点を入れる
 p=[]
 p.append(points[0])
 s=1
 for i in range(1,len(points)-1):
 	cz=points[i][2]
-	if abs(points[i-1][2]-cz)>=0.5 or abs(points[i+1][2]-cz)>=0.5:
+	if abs(points[i-1][2]-cz)>=0.5 or abs(points[i+1][2]-cz)>=0.5:　#左右を見て標高差0.5以上なら必要な点
 		p.append(points[i])
 		s=s+1
 
